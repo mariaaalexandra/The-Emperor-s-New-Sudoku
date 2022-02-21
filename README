@@ -1,0 +1,66 @@
+TEMA 4
+DRUGĂ MARIA-ALEXANDRA
+GRUPA 313CB
+
+CODURI DE EROARE:
+1 = eroare de alocare
+2 = eroare deschidere fisier
+3 = eroare fisier cJSON
+
+În structs.h am definit o structură în care am declarat o matrice tip unsigned
+char, o structura de tip bmp_fileheader și o structură de tip bmp_infoheader.
+
+În funcția main declar un pointer la o structură de tip image și o matrice de
+numere întregi. Verific la ce task mă aflu și deschid fișierul de input.
+Pointerul de tip char reprezintă numele fișierului de input. Apelez funcția
+file care returnează un șir de caracatere reprezentând numele fișiserului de
+output. În această funcție verific dacă mă aflu în cazul bonusului. În variabila
+char pointer nr2 rețin valoarea boardului. Apoi memorez în variabila output
+formatul cerut de fișier. În final returnez șirul de caractere ce este numele
+fișierului de output. Aloc dinamic șirul de caractere *input_char pentru a citi
+din fișierul de input. În continuare apelez funcția read_info pentru parsare.
+
+În funcția read_info parsez fiecare câmp din structura de tip image și atribui
+valoarea. Pentru a realiza parsarea am folosit biblioteca cJSON. În cazul
+matricei de octeți o aloc și verific dacă alocarea a avut succes. Funcția
+returnează pointer la structura de tip image. Pentru primul task afișez cu
+funcția print_info structura de tip image în fișierul filename.
+
+În funcția print_info deschid fișierul și verific dacă s-a realizat cu succes.
+Afișez fiecare câmp al structurii de tip image și inițializez variabila
+întreagă padding. Apoi afișez fiecare element al matricei. În continuare apelez
+în main funcția mirror aplicată lui bit_matrix.
+
+În funcția mirror realizez oglindirea cifrelor. Inițial parcurg fiecare căsuță
+și inițializez două variabile pentru linie și coloană pentru a interschimba
+octeții. Prin următoarele două instrucțiuni for parcurg o matrice pătratică de
+5 linii și 5 coloane în care schimb octeții primilor doi pixeli cu ultimii doi.
+Apoi apelez funcția de afișare în main.
+
+Pentru task 3 apelez în continuare funcția mapping ce îmi creează o matrice de
+numere întregi. Aloc dinamic matricea de numere întregi. În matricea de
+caractere matr retin octetii pentru fiecare cifră. Matricea de caractere
+mă ajută să identific cifra  pe care trebuie să o adaug (a = alb, r = roz). În
+șirul de caractere current rețin codificarea pentru numărul curent. Parcurg cu
+două instrucțiuni for fiecare căsuță și inițializez variabilele pentru linie și
+coloană. Parcurg apoi cu două instrucțiuni for matricea de 5 linii și 5 coloane
+care conține cifra. Verific dacă pixelul este alb sau roz și actualizez în
+vectorul current valoarea. Cu ultimul for verific dacă șirul de caractere
+coincide cu o linie din matricea matr și adaug valoarea întreagă în matricea
+matr. Funcția returnează matricea de numere întregi. În variabila validation
+rețin o variabilă logică pentru a determina dacă matricea este corectă. Astfel
+în funcția verify verific dacă cifrele din matrice respectă cele 3 reguli. Apoi
+apelez funcția task3 care creează fișierul de tip json. Creez numele fișierului
+cu sprintf. În funcție de rezultatul jocului adaug mesajele corespunzătoare.
+
+Dacă în funcția main ajung la taskul 4 sau bonus, atunci apelez funcția de
+citire pentru bmp. În această funcție deschid fișierul și verific operația, iar
+apoi citesc fiecare câmp din structură. În continuare apelez funcția mapping
+care returnează matricea cu elemente întregi. Funcția sudoku realizează
+algoritmul de backtracking pentru completarea corectă a tablei. În funcția
+sudoku mai apelez rules și add. Funcția rules are ca scop verificarea celor
+trei reguli ale jocului, iar în funcția add adaug în matricea matrix octeții
+în funcție de culoare și numărul găsit. În final, pentru taskul 4 afișez cu
+ajutorul funcției print_info.
+Pentru bonus verific în plus dacă trebuie să adaug x în matrice. Apoi realizez
+dezalocările corespunzătoare.
